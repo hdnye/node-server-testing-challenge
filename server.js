@@ -1,11 +1,15 @@
 const express = require('express')
 const cors = require('cors')
-
+const testTbl = require('./testTblDb/testTblRouter')
 const server = express()
 
 //mw
 server.use(express.json())
 server.use(cors())
+
+//router
+server.use('/testTable', testTbl)
+
 //api get message
 server.get('/', (req, res, next) => {
     res.json({
